@@ -20,16 +20,14 @@ To also learn PowerShell
 ### Note on Environment $PATH
 
  "HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Session Manager\\Environment" (HKLM) are system variables - *Needs Admin Powershell*
-	 
 	 
 "HKEY_CURRENT_USER\\Environment" hive (HKCU) a path variable only available when user is logged in - *Can be done by user*
 	 
-	 
-User and System powershell to add and Remove Directory
+## User and System powershell to add and Remove Directory
 
-## How To
+### How To
 
-### Add directory *Permanently* to $PATH
+#### Add directory *Permanently* to $PATH
 Set registry that is to be modified (HKLM/HKCU, note above)
 ```powershell
 $regLocation = "Registry::HKEY_CURRENT_USER\Environment"
@@ -54,9 +52,9 @@ Check the new path
 ```
 
 
-### Remove directory *Permanently* from $PATH
+#### Remove directory *Permanently* from $PATH
 ```powershell
-	# Set registry that is to be modified (HKLM/HKCU, note above)
+Set registry that is to be modified (HKLM/HKCU, note above)
 $regLocation = "Registry::HKEY_CURRENT_USER\Environment"
 
 	# Check original path
@@ -82,50 +80,67 @@ Set-ItemProperty -Path $regLocation -Name PATH -Value $newPath
 (Get-ItemProperty -Path $regLocation -Name PATH).path
 ```
 
+
+
+
+
+
 ### As a script
-** WiP **
+!!! ** WiP ** !!!
 STILL TO COMPLETE
 
+Set registry that is to be modified (HKLM/HKCU, note above)
 ```powershell
-	# Set registry that is to be modified (HKLM/HKCU, note above)
 $regLocation = "Registry::HKEY_CURRENT_USER\Environment"
-
-	# Check original path
+```
+Check original path
+```powershell
 (Get-ItemProperty -Path $regLocation -Name PATH).path
-
-	# Backup the current $PATH
+```
+Backup the current $PATH
+```powershell
 $oldPath = (Get-ItemProperty -Path $regLocation -Name PATH).path
-
-	# Set the newpath variable for modification
+```
+Set the newpath variable for modification
+```powershell
 $newPath = $oldPath
-
-	# Set a remove varible for the directory string to be removed
+```
+Set a remove varible for the directory string to be removed
+```powershell
 $removeDir = “c:\Test\Path\ To Remove”
-
-	# Modify $newpath to remove desired old directory by split, delete and join on the ';' seperator, check changes
+```
+Modify $newpath to remove desired old directory by split, delete and join on the ';' seperator, check changes
+```powershell
 $newPath = ($newPath.Split(';') | Where-Object { $_ -ne "$removeDir" }) -join ';'
 $newPath
-
-	# Set the new $PATH
+```
+Set the new $PATH
+```powershell
 Set-ItemProperty -Path $regLocation -Name PATH -Value $newPath
-
-	# Check the new path
+```
+Check the new path
+```powershell
 (Get-ItemProperty -Path $regLocation -Name PATH).path
-
-	# Set registry that is to be modified (HKLM/HKCU, note above)
+```
+Set registry that is to be modified (HKLM/HKCU, note above)
+```powershell
 $regLocation = "Registry::HKEY_CURRENT_USER\Environment"
-
-	# Backup the current $PATH
+```
+Backup the current $PATH
+```powershell
 $oldPath = (Get-ItemProperty -Path $regLocation -Name PATH).path
 $oldPath
-
-	# Now add the new directory to path (spaces allowed)
+```
+Add the new directory to path (spaces allowed)
+```powershell
 $newPath = “$oldPath;c:\Test\Path\ To Add”
 $newPath
-
-	# Set the new $PATH
+```
+Set the new $PATH
+```powershell
 Set-ItemProperty -Path $regLocation -Name PATH -Value $newPath
-
-	# Check the new path
+```
+Check the new path
+```powershell
 (Get-ItemProperty -Path $regLocation -Name PATH).path
 ```
