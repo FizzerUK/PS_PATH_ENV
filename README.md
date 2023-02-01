@@ -34,22 +34,26 @@ User and System powershell to add and Remove Directory
 ## How To
 
 ### Add directory *Permanently* to $PATH
+Set registry that is to be modified (HKLM/HKCU, note above)
 ```powershell
-	# Set registry that is to be modified (HKLM/HKCU, note above)
 $regLocation = "Registry::HKEY_CURRENT_USER\Environment"
-
-	# Backup the current $PATH
+```
+Backup the current $PATH
+```powershell
 $oldPath = (Get-ItemProperty -Path $regLocation -Name PATH).path
 $oldPath
-
-	# Now add the new directory to path (spaces allowed)
+```
+Add the new directory to path (spaces allowed)
+```powershell
 $newPath = “$oldPath;c:\Test\Path\ To Add”
 $newPath
-
-	# Set the new $PATH
+```
+Set the new $PATH
+```powershell
 Set-ItemProperty -Path $regLocation -Name PATH -Value $newPath
-
-	# Check the new path
+```
+Check the new path
+```powershell
 (Get-ItemProperty -Path $regLocation -Name PATH).path
 ```
 
