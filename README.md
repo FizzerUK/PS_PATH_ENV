@@ -4,8 +4,6 @@
 My notes on PS cammoands and WiP scripts for modyfyinmg $PATH on Windows systems.
 Purely for my education to learn more on PowerShell and Windows systems.
 
-WiP
-
 ### Purpose
 To modify $PATH variable on windows, need as I have added a few standalon programs and want these to be easily accesssilble from the command line.
 To also learn PowerShell
