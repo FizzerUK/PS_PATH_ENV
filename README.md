@@ -17,9 +17,9 @@ To also learn PowerShell.
 
 ### Note on Environment $PATH
 
- "HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Session Manager\\Environment" (HKLM) are system variables - *Needs Admin Powershell*
+ "HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Session Manager\\Environment" (HKLM) are system variables - *Needs Admin Powershell to modify, system wide change*
 	 
-"HKEY_CURRENT_USER\\Environment" hive (HKCU) a path variable only available when user is logged in - *Can be done by user*
+"HKEY_CURRENT_USER\\Environment" hive (HKCU) a path variable only available when user is logged in - *Can be modified by the user but only availible to the user*
 	 
 ## User and System powershell to add and Remove Directory
 
