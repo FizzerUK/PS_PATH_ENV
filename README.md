@@ -5,8 +5,8 @@ My notes on PS cammoands and WiP scripts for modyfyinmg $PATH on Windows systems
 Purely for my education to learn more on PowerShell and Windows systems.
 
 ### Purpose
-To modify $PATH variable on windows, need as I have added a few standalon programs and want these to be easily accesssilble from the command line.
-To also learn PowerShell
+To modify $PATH variable on windows, as I have added a few standalone programs and want these to be easily accesssilble from the command line.
+To also learn PowerShell.
 
 ### References
 [StackOverflow Post - Setting Windows PowerShell environment variables](https://stackoverflow.com/questions/714877/setting-windows-powershell-environment-variables)
