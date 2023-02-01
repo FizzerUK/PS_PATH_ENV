@@ -12,7 +12,9 @@ To also learn PowerShell
 
 ### References
 [StackOverflow Post - Setting Windows PowerShell environment variables](https://stackoverflow.com/questions/714877/setting-windows-powershell-environment-variables)
+
 [StackOverflow Post - PowerShell: how to delete a path in the Path environment variable](https://stackoverflow.com/questions/39010405/powershell-how-to-delete-a-path-in-the-path-environment-variable)
+
 [MS Learn PowerShell - about Environment Variables](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-5.1)
 
 ### Note on Environment $PATH
